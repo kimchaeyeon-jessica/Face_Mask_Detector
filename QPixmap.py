@@ -13,6 +13,7 @@ class MyApp(QWidget):
     def initUI(self):
         pixmap = QPixmap('ElonMusk.jpg')
 
+
         lbl_img = QLabel()
         lbl_img.setPixmap(pixmap)
         lbl_size = QLabel('Width: '+str(pixmap.width())+', Height: '+str(pixmap.height()))
