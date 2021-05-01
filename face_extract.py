@@ -1,10 +1,10 @@
-import face_recognition
+import face_recognition #얼굴 영역 추출
 from PIL import Image, ImageDraw
 
 image_path = 'data/without_mask/0.jpg'
-face_recognition.load_image_file('image_path')
+face_image_np=face_recognition.load_image_file(image_path)
 
-face_locations = face_recognition.face_locations(face_image, model='hog0')
+face_locations = face_recognition.face_locations(face_image_np, model='hog0')
 #face_location 기능 제공, hog라는 학습 되어 있는 모델 (그냥 재료를 넣으면 처리 결과가 튀어나옴 마법의 상자)
 #얼굴이 포함된 이미지를 넣으면 얼굴의 좌표를 return 해줌
 
@@ -20,3 +20,5 @@ for face_location in face_locations:
     left = face_location[3]
     draw.rectangle(((left, top),(right, bottom)), outline=(255,0,0), width=4)
     #얼굴 영역 표시 (빨간 굵기 4 네모로 표시)
+
+face_image.show()
