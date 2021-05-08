@@ -1,7 +1,9 @@
-import face_recognition #얼굴 영역 추출
+import face_recognition
 from PIL import Image, ImageDraw
 
-image_path = 'data/ElonMusk.jpg'
+image_path = 'data/without_mask/1.jpg'
+mask_image_path = 'data/mask.png'
+
 face_image_np=face_recognition.load_image_file(image_path)
 
 face_locations = face_recognition.face_locations(face_image_np, model='hog0')
@@ -21,7 +23,12 @@ for face_location in face_locations:
     draw.rectangle(((left, top),(right, bottom)), outline=(255,0,0), width=4)
     #얼굴 영역 표시 (빨간 굵기 4 네모로 표시)
 
+face_image_np = face_recognition.load_image_file(image_path)
+face_image = Image.fromarray(face_image_np)
+draw = ImageDraw.Draw(face_image)
+
+mask_image = Image.open(mask_image_path)
+mask_image = mask_image.resize((right-left,bottom-top-35))  #마스크 사이즈를 리사이즈함
+
+face_image.paste(mask_image, (left,top+40), mask_image) #마스크 사진에서 마스크만 추출하고 나머지 영역을 투명으로 바꿔줌
 face_image.show()
-print(top,right,bottom,left)
-
-

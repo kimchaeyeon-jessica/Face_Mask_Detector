@@ -11,7 +11,7 @@ class MyApp(QWidget):
         self.initUI()
 
     def initUI(self):
-        pixmap = QPixmap('ElonMusk.jpg')
+        pixmap = QPixmap('data/ElonMusk.jpg')
 
 
         lbl_img = QLabel()
