@@ -1,10 +1,10 @@
-import tensorflow as tf
+'''import tensorflow as tf
 print(tf.__version__)
 
 a = 3
 b = 4
 c = a + b
-print(c)
+print(c)'''
 
 import tensorflow as tf
 a = tf.constant(3)
@@ -12,7 +12,7 @@ b = tf.constant(4)
 c = a + b
 print(c)
 
-#텐서플로우 실행
+''''#텐서플로우 실행
 import tensorflow as tf_new
 tf = tf_new.compat.v1
 
@@ -32,4 +32,4 @@ with g.as_default() as graph:
     node2 = tf.constant(4.0, tf.float32)
     node3 = tf.add(node1, node2)
     sess = tf.Session()
-    print("node1:",sess.run(node1))
+    print("node1:",sess.run(node1))'''
