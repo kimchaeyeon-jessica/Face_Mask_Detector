@@ -1,4 +1,4 @@
-../data
-../models
-../logs
-../outputs
+data
+models
+logs
+outputs
